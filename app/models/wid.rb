@@ -1,0 +1,2 @@
+class Wid < ApplicationRecord
+end
