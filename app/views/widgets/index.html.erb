@@ -1,7 +1,11 @@
-<h1 class='container'>Widgets</h1>
+<h1 class='container mb-4'>Widgets</h1>
+
 
 
 <div class='container'>
+    <div class="pull-right mb-3">
+      <%= render "widgets/search", var: @var%>
+    </div>
   <% @widgets.each do |widget| %>
     <div class="card">
       <div class=" row container">
