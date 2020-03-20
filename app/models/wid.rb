@@ -1,2 +1,0 @@
-class Wid < ApplicationRecord
-end

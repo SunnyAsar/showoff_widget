@@ -1,0 +1,22 @@
+<h1 class='container'>Widgets</h1>
+
+
+<div class='container'>
+  <% @widgets.each do |widget| %>
+    <div class="card">
+      <div class=" row container">
+      <div class="col-md-2 tnail">
+       <%= image_tag "#{widget['user']['images']['small_url']}", :class => "tnail"  %>
+      </div>
+
+      <div class="col-md-8">
+       <h4> <%= widget['name']%></h4>
+        <p class="card-text"><%= widget['description']%></p>
+
+        <p class="small">Owner: <%= widget['user']['name']%> </p>
+      </div>
+  </div>
+    </div>
+    
+  <%end%>
+</div>
