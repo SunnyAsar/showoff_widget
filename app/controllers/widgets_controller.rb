@@ -8,7 +8,7 @@ class WidgetsController < ApplicationController
     if params[:search]
       find_widget
     else
-       response = Widget.get_widgets @auth
+      response = Widget.get_widgets @auth
     @widgets = response['data']['widgets']
     end
   end
@@ -19,7 +19,6 @@ class WidgetsController < ApplicationController
     response = Widget.create_widget(widget,@auth)
     if response == 200
       redirect_to mywidgets_path
-      # redirect_back fallback_location: root_path
     else
       flash[:alert] = "something horrible happened"
       render 'users/profile'

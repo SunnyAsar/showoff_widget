@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  require 'rest-client'
   require 'json'
 
   def new
@@ -26,20 +25,9 @@ class UsersController < ApplicationController
 
   private
 
-  def store_user data
-    user = data['data']['user']
-    user_data = {
-      name: user['name'],
-      first_name: user['first_name'],
-      last_name: user['last_name'],
-      email: user['email'],
-    }
-    session[:token] =  data['data']['token']
-    session[:user] = user_data
- 
-  end
+  
 
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :image_url)
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :image_url)
+  end
 end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'authentication/login'
+  get 'public', to: 'public#index'
+  post 'login', to:'authentication#login'
   get 'users/create'
+  get 'logout', to: 'authentication#logout'
   resources :users
   get 'mywidgets', to: 'users#profile'
   post 'widget', to: 'widgets#create'
