@@ -1,0 +1,14 @@
+
+
+<%= form_for :search, url: root_path, method: :get do |f| %>
+  <div class="form-inline pull-right">
+  <div class="form-group">
+    <label class="sr-only">Search Widgets</label>
+  </div>
+  <div class="form-group mx-sm-3">
+    <label for="inputPassword2" class="sr-only">search</label>
+   <%= f.text_field :search_term, placeholder:'search', class: 'form-control' %>
+  </div>
+  <%= f.submit 'find widget', class: 'btn btn-primary pull-right' %>
+</div>
+<% end %>
