@@ -18,6 +18,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @auth = session[:token]["access_token"]
+    response = User.get_my_widgets @auth
+    @widgets = response['data']['widgets']
+  end
+
   private
 
   def store_user data

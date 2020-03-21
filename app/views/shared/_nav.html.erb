@@ -6,7 +6,7 @@
     <a class="navbar-brand" href="#">Widget App</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -16,7 +16,8 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-danger  mr-sm-2 my-2 my-sm-0" type="submit">Create Widget</button>
+
+      <%= link_to 'My Widgets', mywidgets_path, class: 'btn btn-outline-danger  mr-sm-2 my-2 my-sm-0' %>
       <button class="btn btn-outline-danger  mr-sm-2 my-2 my-sm-0" type="submit">Login</button>
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit">SignUp</button>
     </form>

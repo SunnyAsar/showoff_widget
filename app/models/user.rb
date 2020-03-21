@@ -15,10 +15,21 @@ class User < ApplicationRecord
                             payload: data,
                             headers: {"Content-Type" => "application/json"}
                            )
-                          #  puts Object.new(response.body.to)
 
 
                           response
+  end
+
+  def self.get_my_widgets token
+    c_Id = ENV['CLIENT_ID']
+    c_Secret = ENV['CLIENT_SECRET']
+    url = "https://showoff-rails-react-production.herokuapp.com/api/v1/users/me/widgets?client_id=#{c_Id}&client_secret=#{c_Secret}"
+    response = RestClient::Request.execute(method: :get,
+                                url: url,
+                                headers: {"Content-Type" => "application/json",
+                                :Authorization => "Bearer #{token}" }
+                                 )
+                                JSON.parse response
   end
 
 end

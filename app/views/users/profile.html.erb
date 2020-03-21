@@ -1,8 +1,17 @@
-<h1 class='container mb-4'>Widgets</h1>
+
 <div class='container'>
-    <div class="pull-right mb-3">
-      <%= render "widgets/search", var: @var%>
+  <div class="row container mt-4">
+    <div class=" col-md-6">
+    <h2> My Widgets </h2>
     </div>
+    <div class=" col-md-6 d-flex justify-content-end">
+       <%= render "widgets/create_modal"%>
+    </div>
+  </div>
+    <div class="pull-right mb-3 ">
+      <%# <%= render "widgets/search", var: @var%> %>
+    </div>
+
   <% @widgets.each do |widget| %>
     <div class="card">
       <div class=" row container">

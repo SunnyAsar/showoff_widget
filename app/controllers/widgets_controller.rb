@@ -5,15 +5,25 @@ class WidgetsController < ApplicationController
     @item = ENV['CLIENT_SECRET']
     @user = session[:user]
     @auth = session[:token]["access_token"]
-     if params[:search]
+    if params[:search]
       find_widget
-     else
-      response = Widget.get_widgets @auth
-      @widgets = response['data']['widgets']
-     end
+    else
+       response = Widget.get_widgets @auth
+    @widgets = response['data']['widgets']
+    end
   end
 
-  def show
+  def create
+    @auth = session[:token]["access_token"]
+    widget = {"widget" => { :name => widget_params[:name], :description => widget_params[:description], :kind => widget_params[:kind] } }
+    response = Widget.create_widget(widget,@auth)
+    if response == 200
+      redirect_to mywidgets_path
+      # redirect_back fallback_location: root_path
+    else
+      flash[:alert] = "something horrible happened"
+      render 'users/profile'
+    end
   end
 
   private
@@ -28,5 +38,9 @@ class WidgetsController < ApplicationController
 
   def search_params
     params.require(:search).permit(:search_term)
+  end
+
+  def widget_params
+    params.require(:widget).permit(:name, :description, :kind)
   end
 end
