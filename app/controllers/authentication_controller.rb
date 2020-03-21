@@ -2,7 +2,6 @@ class AuthenticationController < ApplicationController
   before_action :authenticated?, except: [:login]
 
   def login
-    puts login_params
     response = User.login(login_params)
     if response.code === 200
       store_token JSON.parse response
